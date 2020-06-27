@@ -1,1 +1,1 @@
-export { default as CMInput } from './input'
+export { default as CMInput } from './search'

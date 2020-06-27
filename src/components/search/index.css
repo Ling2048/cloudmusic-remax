@@ -1,0 +1,21 @@
+.container {
+    background-color: #f7f7f7;
+    border-radius: 20PX;
+    display: flex;
+    align-items: center;
+    padding: 10PX 12PX;
+}
+
+.icon {
+    width: 20PX;
+    height: 20PX;
+    margin-right: 8PX;
+}
+
+.input {
+    border: none;
+    background-color: transparent;
+    font-size: 15PX;
+    flex-grow: 1;
+    text-align: left;
+}
