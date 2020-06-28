@@ -1,18 +1,26 @@
 import * as React from 'react';
+import { useNativeEffect } from 'remax';
 import { CMInput } from '../../components';
-import { useAppEvent } from 'remax/macro';
 import { toplist } from '../../common/network';
 import { View, Text, Image } from 'remax/one';
+import { useSelector, useDispatch } from 'react-redux';
+import { addTodo } from '../../store/redux/actions/test'
+
 import styles from './index.css';
 
 export default () => {
   const [ list, setList ] = React.useState<TopList['data']>();
-  React.useLayoutEffect(() => {
+  const state = useSelector<Test[], any>(state => state);
+  const dispatch = useDispatch();
+  console.log(state.test);
+
+  useNativeEffect(() => {
     console.log('done');
     toplist().then((res) => {
       console.log(res);
       setList(res.data);
     });
+    dispatch(addTodo('test'))
   }, []);
 
   const _toplist = list?.map(v => {
