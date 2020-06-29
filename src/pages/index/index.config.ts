@@ -1,5 +1,5 @@
 module.exports = {
-    navigationBarTextStyle: "black",
-    navigationBarBackgroundColor: '#ffffff',
-    navigationBarTitleText: '网易云音乐',
+  navigationBarTextStyle: "black",
+  navigationBarBackgroundColor: '#ffffff',
+  navigationBarTitleText: '网易云音乐',
 };

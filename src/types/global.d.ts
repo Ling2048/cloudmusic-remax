@@ -5,13 +5,7 @@ type Base<T> = {
     data: T
 }
 
-type Test = {
-    id: number,
-    text: string,
-    completed: boolean
-}
-
-declare type TopList = Base<{
+type TopList = Base<{
     name: string,
     categoryCode: string,
     list: {
