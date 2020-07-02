@@ -1,7 +1,7 @@
-type TOPLIST = Actions['data']['getTopList']['data'];
+type TopList = Actions['data']['getTopList']['data']
+type RecommendList = Actions['data']['getRecommendList']['data']
 
-const data = (state: TOPLIST = [], action: {type: string, data: TOPLIST}): TOPLIST => {
-  console.log(state, action);
+const getTopList = (state: TopList = [], action: {type: string, data: TopList}) => {
   switch (action.type) {
     case 'GET_TOPLIST':
       return [
@@ -12,4 +12,18 @@ const data = (state: TOPLIST = [], action: {type: string, data: TOPLIST}): TOPLI
   }
 }
 
-export default data
+const getRecommendList = (state: RecommendList = [], action: {type: string, data: RecommendList}) => {
+  switch (action.type) {
+    case 'GET_RECOMMENDLIST':
+      return [
+        ...action.data,
+      ]
+    default:
+      return state
+  }
+}
+
+export {
+  getTopList,
+  getRecommendList
+}

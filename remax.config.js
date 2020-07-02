@@ -4,7 +4,6 @@ module.exports = {
   configWebpack({ config }) {
     // https://github.com/neutrinojs/webpack-chain
     // node_modules\@remax\cli\lib\build\web.js
-    // console.log(config.devServer);
     config.devServer.proxy({
       '/weapi': {
         target: 'https://music.163.com',

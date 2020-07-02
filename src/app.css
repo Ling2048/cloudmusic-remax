@@ -1,5 +1,10 @@
 page {
   background: #ffffff;
+  height: 100%;
+}
+
+.app {
+  padding: 0 30px;
 }
 
 .remax-page {

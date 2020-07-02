@@ -8,6 +8,7 @@
     "jsx": "preserve",
     "rootDir": "src",
     "baseUrl": "./",
+    "allowJs": true,
     "paths": {
       "@/*": ["./src/*"]
     },

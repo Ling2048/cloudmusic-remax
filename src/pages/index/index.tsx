@@ -1,16 +1,14 @@
-import * as React from 'react';
-import { useNativeEffect } from 'remax';
-import { CMInput } from '../../components';
-import { toplist } from '../../common/network';
-import { View, Text, Image } from 'remax/one';
-import { useSelector, useDispatch } from 'react-redux';
-import { getTopList } from '../../store/redux/actions';
-
-import styles from './index.css';
+import * as React from 'react'
+import { useNativeEffect } from 'remax'
+import { CMInput } from '../../components'
+import { toplist } from '../../common/network'
+import { View, Text, Image, navigateTo } from 'remax/one'
+import { useSelector, useDispatch } from 'react-redux'
+import { getTopList } from '../../store/redux/actions'
+import { suggest } from '../../common/network'
 
 const TopList = () => {
-  console.log('render');
-  const state = useSelector<Reducers, Actions['data']['getTopList']['data']>(state => state.data);
+  const state = useSelector<Reducers, Actions['data']['getTopList']['data']>(state => state.getTopList);
 
   const _toplist = state.map(v => {
     return v.list.map(vv => {
@@ -44,17 +42,22 @@ const TopList = () => {
 export default () => {
   const dispatch = useDispatch();
 
+  const handleTap = React.useCallback(()=>{
+    navigateTo({
+      url: '/pages/search/index'
+    })
+  }, []);
+
   useNativeEffect(() => {
-    console.log('useNativeEffect');
     toplist().then((res) => {
       dispatch(getTopList(res.data));
     });
   }, []);
 
   return (
-    <View className={styles.app}>
-      <View style={{ margin: '10PX 0' }}>
-        <CMInput />
+    <View className='app'>
+      <View onTap={handleTap} style={{ margin: '12px 0' }}>
+        <CMInput disabled={true}/>
       </View>
       <TopList/>
     </View>

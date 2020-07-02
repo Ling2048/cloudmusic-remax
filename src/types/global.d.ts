@@ -1,8 +1,9 @@
-type Base<T> = {
+type Base<T, R> = {
     code: number,
     msg: string,
     message: string,
-    data: T
+    data: T,
+    result: R
 }
 
 type TopList = Base<{
@@ -27,4 +28,13 @@ type TopList = Base<{
         updateFrequency: string | null
     }[],
     displayType: string
-}[]>
+}[], null>
+
+type RecommendList = Base<null, {
+  allMatch: {
+    keyword: string,
+    type: number,
+    alg: string,
+    lastKeyword: string
+  }[]
+}>

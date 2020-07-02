@@ -3,4 +3,9 @@ const getTopList = (data: TopList['data']) => ({
   data: data
 })
 
-export { getTopList }
+const getRecommendList = (data: RecommendList['result']['allMatch']) => ({
+  type: 'GET_RECOMMENDLIST',
+  data: data
+})
+
+export { getTopList, getRecommendList }

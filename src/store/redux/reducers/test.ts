@@ -1,5 +1,6 @@
+type Test = Actions['test']['addTodo'];
+
 const todos = (state: Test[] = [], action: Test): Test[] => {
-  console.log(state, action);
   switch (action.type) {
     case 'ADD_TODO':
       return [

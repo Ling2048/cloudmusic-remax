@@ -1,21 +1,28 @@
 .container {
   background-color: #f7f7f7;
-  border-radius: 20PX;
+  border-radius: 40px;
   display: flex;
   align-items: center;
-  padding: 10PX 12PX;
+  padding: 20px 25px;
 }
 
 .icon {
-  width: 20PX;
-  height: 20PX;
-  margin-right: 8PX;
+  width: 40px;
+  height: 40px;
+}
+
+.marginRight {
+  margin-right: 16px;
+}
+
+.marginLeft {
+  margin-left: 16px;
 }
 
 .input {
   border: none;
   background-color: transparent;
-  font-size: 15PX;
+  font-size: 30px;
   flex-grow: 1;
   text-align: left;
 }
