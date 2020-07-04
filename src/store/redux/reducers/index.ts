@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 import test from './test'
 import * as data from './data'
+import * as common from './common'
 
 const reducers = {
   test,
-  ...data
+  ...data,
+  ...common
 }
 
 export type reducers = typeof reducers

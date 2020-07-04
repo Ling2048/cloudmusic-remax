@@ -11,15 +11,15 @@
   background-color: white;
 }
 
-.container {
+.page {
   overflow-y: scroll;
   height: 100%;
   margin-top: 80px;
   border-top: 1px solid black;
 }
 
-.suggest {
-  padding: 0 30px;
+.wrap {
+  padding: 30px;
 }
 
 .searchValue {
@@ -46,8 +46,11 @@
   padding: 30px 0;
 }
 
-.searchItem Image {
+Image {
   width: 40px;
   height: 40px;
+}
+
+.searchItem Image {
   padding-right: 20px;
 }

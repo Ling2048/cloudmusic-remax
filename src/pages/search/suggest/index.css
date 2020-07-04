@@ -1,9 +1,9 @@
-.suggest {
-  padding: 0 30px;
+.wrap {
+  padding: 30px 30px 0 30px;
 }
 
 .searchValue {
-  padding: 50px 25px;
+  padding: 0 25px 50px 25px;
   color: #6f8eb6;
   display: flex;
 }

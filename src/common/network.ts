@@ -18,10 +18,32 @@ const toplist = () => {
   return Post('/weapi/toplist/detail/v2', {}) as Promise<TopList>;
 }
 
-const suggest = (data: any) => {
+const suggest = (keyword: string) => {
   return Post('/weapi/search/suggest/keyword', {
-    s: data
+    s: keyword
   }) as Promise<RecommendList>;
 }
 
-export { toplist, suggest }
+const hotsearchlist = () => {
+  return Post('/weapi/hotsearchlist/get', {}) as Promise<HotSearchList>;
+}
+
+const search = (params: {
+  s: string,
+  limit: number,
+  offset: number,
+  queryCorrect: boolean
+}) => {
+  console.log({
+    ...params,
+    type: 1,
+    strategy: 5,
+  });
+  return Post('/weapi/search/get', {
+    ...params,
+    type: 1,
+    strategy: 5,
+  }) as Promise<SearchList>;
+}
+
+export { toplist, suggest, hotsearchlist, search }

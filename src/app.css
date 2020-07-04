@@ -10,3 +10,11 @@ page {
 .remax-page {
   min-height: unset !important;
 }
+
+.content, .info {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: normal;
+  line-height: 1.5;
+}
