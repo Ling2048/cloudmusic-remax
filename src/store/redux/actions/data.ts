@@ -2,7 +2,8 @@ enum ActionTypes {
   GET_TOPLIST = 'GET_TOPLIST',
   GET_RECOMMENDLIST = 'GET_RECOMMENDLIST',
   GET_HOTSEARCHLIST = 'GET_HOTSEARCHLIST',
-  GET_SEARCHLIST = 'GET_SEARCHLIST'
+  GET_SEARCHLIST = 'GET_SEARCHLIST',
+  GET_PLAYLISTDETAIL = 'GET_PLAYLISTDETAIL'
 }
 
 const base = <T>(type: string) => (data: T) => ({
@@ -18,10 +19,13 @@ const getHotSearchList = base<HotSearchList['data']>(ActionTypes.GET_HOTSEARCHLI
 
 const getSearchList = base<SearchList['result']>(ActionTypes.GET_SEARCHLIST)
 
+const getPlayListDetail = base<PlayListDetail>(ActionTypes.GET_PLAYLISTDETAIL)
+
 export {
   ActionTypes,
   getTopList, 
   getRecommendList,
   getHotSearchList,
-  getSearchList
+  getSearchList,
+  getPlayListDetail
 }

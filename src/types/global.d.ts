@@ -1,3 +1,9 @@
+type RouteProps<Q> = {
+  location?: {
+    query: Q
+  }
+}
+
 type Base<D, R> = {
     code: number,
     msg: string,
@@ -140,3 +146,40 @@ type SearchList = Base<null, {
   }[],
   songCount: number
 }>
+
+type PlayListDetail = Base<null, null> & {
+  playlist: {
+    coverImgId_str: number,
+    subscribedCount: number,
+    description: string,
+    name: string,
+    playCount: number,
+    coverImgUrl: string,
+    creator: {
+      nickname: string,
+      avatarUrl: string,
+    },
+    tracks: {
+      name: string,
+      id: number,
+      fee: number,
+      ar: {
+        id: number,
+        name: string,
+        tns: string[],
+        alias: {}[]
+      }[],
+      al: {
+        id: number,
+        name: string,
+        picUrl: string,
+        tns: string[],
+        pic: number
+      }
+    }[]
+  },
+  privileges: {
+    flag: number,
+    maxbr: number
+  }[]
+}

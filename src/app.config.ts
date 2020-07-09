@@ -1,6 +1,8 @@
 const pages = [
   'pages/index/index',
   'pages/search/index',
+  'pages/playlist/index',
+  'pages/song/index',
 ];
 const color = '#282c34';
 
@@ -12,8 +14,10 @@ import { AppConfig as WebAppConfig } from 'remax/web';
 export const wechat: WechatAppConfig = {
   pages,
   window: {
-    navigationBarBackgroundColor: color,
-    navigationBarTitleText: 'Remax One Wechat',
+    navigationBarTextStyle: "black",
+    navigationBarBackgroundColor: '#ffffff',
+    navigationBarTitleText: '😀😃😄😁😆😅',
+    // navigationStyle: "custom"
   },
 };
 

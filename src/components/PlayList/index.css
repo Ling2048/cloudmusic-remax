@@ -1,0 +1,56 @@
+.m-play-list {
+  padding: 0 33.336px;
+}
+
+.m-play-list .list-item {
+  position: relative;
+  box-sizing: border-box;
+  padding: 29.169px 118.7595px 29.169px 0;
+  height: 125.01px;
+  border-bottom: 0.6945px solid rgba(0,0,0,.1);
+  color: #333;
+  font-size: 31.2525px;
+}
+
+.m-play-list .list-item .order {
+  position: absolute;
+  top: 41.67px;
+  left: 0;
+  width: 104.175px;
+  color: #999;
+  text-align: center;
+  font-size: 32.6415px;
+  line-height: 33.336px;
+}
+
+.m-play-list .list-item .content {
+  display: inline-block;
+  width: 100%;
+}
+
+.m-play-list .list-item .content .info,.m-play-list .list-item .content .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: normal;
+  line-height: 1.5;
+}
+
+.m-play-list .list-item .content .info {
+  color: #999;
+  font-size: 22.9185px;
+}
+
+.m-play-list .list-item .content .info .tag-icon {
+  margin-right: 6.2505px;
+  width: 31.2525px;
+  height: 18.7515px;
+}
+
+.m-play-list .list-item .play-icon {
+  position: absolute;
+  top: 37.503px;
+  right: 0;
+  width: 50.004px;
+  height: 50.004px;
+}

@@ -1,0 +1,119 @@
+.playlist-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.playlist-bg .playlist-bg-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: blur(27.78rpx);
+  transform: scale(1.5);
+  transform-origin: center top;
+}
+
+.playlist-bg .playlist-bg-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.15);
+}
+
+.no-song {
+  padding-top: 32.6415rpx;
+  height: 262.521rpx;
+  color: #333;
+  text-align: center;
+}
+
+.header-wrap {
+  background-color: transparent;
+}
+
+.playlist-wrap {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 41.67rpx;
+  background-color: #fff;
+}
+
+.btn-list .btn-wrap,.playlist-wrap .list-item {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.playlist-wrap .list-item {
+  position: relative;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 31.2525rpx 33.336rpx;
+  color: #333;
+}
+
+.playlist-wrap .list-item .play-icon {
+  margin-right: 29.169rpx;
+  width: 41.67rpx;
+  height: 41.67rpx;
+}
+
+.playlist-wrap .list-item .title {
+  margin-right: 7.6395rpx;
+  font-size: 33.336rpx;
+}
+
+.playlist-wrap .list-item .info {
+  color: rgba(0,0,0,.3);
+  font-size: 27.0855rpx;
+}
+
+.btn-list {
+  margin-bottom: 41.67rpx;
+  height: 70.839rpx;
+  text-align: center;
+}
+
+.btn-list .btn-wrap {
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-right: 33.336rpx;
+  padding-left: 33.336rpx;
+}
+
+.btn-list .btn {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0;
+  width: 331.2765rpx;
+  height: 70.839rpx;
+  border: 0;
+  border-radius: 35.4195rpx;
+  background-color: rgba(255,255,255,.1);
+  color: #fff;
+  font-size: 29.169rpx;
+  line-height: 70.839rpx;
+}
+
+.btn-list .btn::after {
+  border: 0;
+}
+
+.btn-list .btn .btn-icon {
+  margin-right: 12.501rpx;
+  width: 29.169rpx;
+  height: 29.169rpx;
+  vertical-align: middle;
+}
+
+.btn-list .btn .btn-msg {
+  vertical-align: middle;
+}

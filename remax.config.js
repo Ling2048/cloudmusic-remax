@@ -2,17 +2,18 @@ module.exports = {
   one: true,
   output: 'dist/' + process.env.REMAX_PLATFORM,
   configWebpack({ config }) {
-    // https://github.com/neutrinojs/webpack-chain
-    // node_modules\@remax\cli\lib\build\web.js
+    //配合VSCode的CSS Modules插件
+    config.module.rule('css').oneOf('modules').use('css-loader').merge({
+      options: {
+        localsConvention: 'camelCase'
+      }
+    })
+
     config.devServer.proxy({
       '/weapi': {
         target: 'https://music.163.com',
         changeOrigin: true
-        // pathRewrite: { "^/api": "" } // 匹配 api 将 api 替换为 空
-      },
-      '/test': {
-        target: 'https://www.baidu.com',
       }
-    });
+    })
   }
 };

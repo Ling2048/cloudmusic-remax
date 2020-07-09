@@ -46,4 +46,24 @@ const search = (params: {
   }) as Promise<SearchList>;
 }
 
-export { toplist, suggest, hotsearchlist, search }
+const playlistdetail = (params: {
+  id: number,
+  shareUserId: number
+}) => {
+  return Post('/weapi/v6/playlist/detail', {
+    ...params,
+    n: 1e3,
+    recalcSize: !1
+  }) as Promise<PlayListDetail>;
+}
+
+const songdetail = (id: number) => {
+  return Post('/weapi/static/songassembler/song/detail/get', {
+    idversion: JSON.stringify([ {
+        id: id
+    } ]),
+    v: 0
+  }) as Promise<PlayListDetail>;
+}
+
+export { toplist, suggest, hotsearchlist, search, playlistdetail, songdetail }

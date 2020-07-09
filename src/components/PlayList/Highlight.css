@@ -1,0 +1,8 @@
+.item {
+  display: inline;
+}
+
+.item .hightlight {
+  display: inline;
+  color: #507daf;
+}

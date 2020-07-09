@@ -1,0 +1,72 @@
+.newsong {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.song-bg,.song-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.song-mask {
+  background-color: rgba(0,0,0,.5);
+}
+
+.song-bg {
+  background-color: #161824;
+}
+
+.song-bg-img {
+  position: absolute;
+  transform: scale(1.5);
+  transform-origin: center top;
+}
+
+.song-bg-img .current {
+  z-index: 3;
+}
+
+.song-bg-img .next {
+  z-index: 2;
+}
+
+.scroll-view {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.scroll-view .empty-box {
+  height: 83.34rpx;
+}
+
+.open-btn {
+  margin: 41.67rpx 33.336rpx 0;
+  height: 70.839rpx;
+  border: transparent;
+  border-radius: 35.4195rpx;
+  background-color: rgba(255,255,255,.1);
+  color: #fff;
+  font-size: 29.169rpx;
+}
+
+.open-btn::after {
+  border: 0;
+}
+
+.play-btn {
+  position: absolute;
+  top: 445.1745rpx;
+  left: 50%;
+  z-index: 5;
+  margin-left: -52.0875rpx;
+  width: 104.175rpx;
+  height: 104.175rpx;
+}

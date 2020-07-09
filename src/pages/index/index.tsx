@@ -5,10 +5,15 @@ import { toplist } from '../../common/network'
 import { View, Text, Image, navigateTo } from 'remax/one'
 import { useSelector, useDispatch } from 'react-redux'
 import { getTopList } from '../../store/redux/actions'
-import { suggest } from '../../common/network'
 
 const TopList = () => {
   const state = useSelector<Reducers, Actions['data']['getTopList']['data']>(state => state.getTopList);
+
+  const handleItemTap = React.useCallback((id: number)=>{
+    navigateTo({
+      url: '/pages/playlist/index?id=' + id
+    })
+  }, [])
 
   const _toplist = state.map(v => {
     return v.list.map(vv => {
@@ -20,7 +25,7 @@ const TopList = () => {
         </Text>
       });
 
-      return <View key={vv.id} style={{ display: 'flex', padding: '7PX 0', height: '110PX' }}>
+      return <View key={vv.id} style={{ display: 'flex', padding: '7PX 0', height: '110PX' }} onTap={handleItemTap.bind(null, vv.id)}>
         <View style={{ position: 'relative' }}>
           <Image src={vv.coverUrl} style={{ width: '110PX', height: '110PX', borderRadius: '3PX' }} />
           <Text style={{ position: 'absolute', left: 0, bottom: 0, margin: '0 0 5px 10px', color: '#faf5f4DD', fontSize: '11PX' }}>
