@@ -1,0 +1,23 @@
+.lyrics-main {
+  box-sizing: border-box;
+  padding-top: 62.505px;
+  padding-bottom: 83.34px;
+  text-align: center;
+  font-size: 29.169px;
+}
+
+.lyrics-main .lyrics-scroll {
+  position: relative;
+  height: 120PX;
+  color: #fff;
+}
+
+.lyrics-main .lyrics-btn {
+  border: transparent;
+  color: rgba(255,255,255,.8);
+  vertical-align: middle;
+  text-decoration: underline;
+  font-size: 29.169px;
+  line-height: 1.5;
+  background-color: transparent;
+}

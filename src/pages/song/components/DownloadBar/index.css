@@ -1,0 +1,45 @@
+.download-bar {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  margin-bottom: 70.1445rpx;
+  padding: 0 33.336rpx;
+  height: 70.839rpx;
+}
+
+.download-bar .down-btn {
+  margin: 0;
+  width: 331.2765rpx;
+  border-radius: 35.4195rpx;
+  color: #fff;
+  font-size: 29.169rpx;
+  background-color: transparent;
+}
+
+.download-bar .down-btn,.download-bar .down-btn .right-wrap {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.download-bar .down-btn .down-img {
+  margin-right: 12.501rpx;
+  width: 37.503rpx;
+  height: 37.503rpx;
+}
+
+.download-bar .left {
+  border: 1.389rpx solid rgba(255,255,255,.6);
+}
+
+.download-bar .right {
+  color: #ff3a3a;
+}
+
+.download-bar .right::after {
+  border: 0;
+}

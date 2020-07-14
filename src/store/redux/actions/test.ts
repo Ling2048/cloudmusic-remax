@@ -18,4 +18,4 @@ const toggleTodo = (id: number): test => ({
   id
 })
 
-export { addTodo, toggleTodo, test }
+export { addTodo, toggleTodo }

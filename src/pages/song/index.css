@@ -44,17 +44,17 @@
 }
 
 .scroll-view .empty-box {
-  height: 83.34rpx;
+  height: 83.34px;
 }
 
 .open-btn {
-  margin: 41.67rpx 33.336rpx 0;
-  height: 70.839rpx;
+  margin: 41.67px 33.336px 0;
+  height: 70.839px;
   border: transparent;
-  border-radius: 35.4195rpx;
+  border-radius: 35.4195px;
   background-color: rgba(255,255,255,.1);
   color: #fff;
-  font-size: 29.169rpx;
+  font-size: 29.169px;
 }
 
 .open-btn::after {
@@ -63,10 +63,10 @@
 
 .play-btn {
   position: absolute;
-  top: 445.1745rpx;
+  top: 445.1745px;
   left: 50%;
   z-index: 5;
-  margin-left: -52.0875rpx;
-  width: 104.175rpx;
-  height: 104.175rpx;
+  margin-left: -52.0875px;
+  width: 104.175px;
+  height: 104.175px;
 }

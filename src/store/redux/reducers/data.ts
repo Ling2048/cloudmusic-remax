@@ -1,13 +1,22 @@
-import { ActionTypes } from "../actions"
+import { DataTypes } from '../actions'
 
 type TopList = Actions['data']['getTopList']['data']
 type RecommendList = Actions['data']['getRecommendList']['data']
 type HotSearchList = Actions['data']['getHotSearchList']['data']
 type SearchList = Actions['data']['getSearchList']['data']
+type SongDetailData = Actions['data']['getSongDetail']['data']
+type SongLyricsData = Actions['data']['getSongLyrics']['data']
+type SimiSongData = Actions['data']['getSimiSong']['data']
+type SongCommentData = Actions['data']['getSongComment']['data']
 
-const getTopList = (state: TopList = [], action: {type: string, data: TopList}) => {
+type ActionType<T> = {
+  type: string,
+  data: T
+}
+
+const getTopList = (state: TopList = [], action: ActionType<TopList>) => {
   switch (action.type) {
-    case ActionTypes.GET_TOPLIST:
+    case DataTypes.GET_TOPLIST:
       return [
         ...action.data,
       ]
@@ -16,9 +25,9 @@ const getTopList = (state: TopList = [], action: {type: string, data: TopList}) 
   }
 }
 
-const getRecommendList = (state: RecommendList = [], action: {type: string, data: RecommendList}) => {
+const getRecommendList = (state: RecommendList = [], action: ActionType<RecommendList>) => {
   switch (action.type) {
-    case ActionTypes.GET_RECOMMENDLIST:
+    case DataTypes.GET_RECOMMENDLIST:
       return [
         ...action.data,
       ]
@@ -27,9 +36,9 @@ const getRecommendList = (state: RecommendList = [], action: {type: string, data
   }
 }
 
-const getHotSearchList = (state: HotSearchList = [], action: {type: string, data: HotSearchList}) => {
+const getHotSearchList = (state: HotSearchList = [], action: ActionType<HotSearchList>) => {
   switch (action.type) {
-    case ActionTypes.GET_HOTSEARCHLIST:
+    case DataTypes.GET_HOTSEARCHLIST:
       return [
         ...action.data,
       ]
@@ -38,21 +47,57 @@ const getHotSearchList = (state: HotSearchList = [], action: {type: string, data
   }
 }
 
-const getSearchList = (state: SearchList | null = null, action: {type: string, data: SearchList}) => {
+const getSearchList = (state: SearchList | null = null, action: ActionType<SearchList>) => {
   switch (action.type) {
-    case ActionTypes.GET_SEARCHLIST:
+    case DataTypes.GET_SEARCHLIST:
       return action.data
     default:
       return state
   }
 }
 
-const getPlayListDetail = (state: PlayListDetail | null = null, action: {type: string, data: PlayListDetail}) => {
+const getPlayListDetail = (state: PlayListDetail | null = null, action: ActionType<PlayListDetail>) => {
   switch (action.type) {
-    case ActionTypes.GET_PLAYLISTDETAIL:
+    case DataTypes.GET_PLAYLISTDETAIL:
       return action.data
     default:
       return state
+  }
+}
+
+const getSongDetail = (state: SongDetailData = [], action: ActionType<SongDetailData>) => {
+  switch (action.type) {
+    case DataTypes.GET_SONGDETAIL:
+      return action.data
+    default:
+      return state
+  }
+}
+
+const getSongLyrics = (state: SongLyricsData | null = null, action: ActionType<SongLyricsData>) => {
+  switch (action.type) {
+    case DataTypes.GET_SONGLYRICS:
+      return action.data
+      default:
+        return state
+  }
+}
+
+const getSimiSong = (state: SimiSongData = [], action: ActionType<SimiSongData>) => {
+  switch (action.type) {
+    case DataTypes.GET_SIMISONG:
+      return action.data
+      default:
+        return state
+  }
+}
+
+const getSongComment = (state: SongCommentData = [], action: ActionType<SongCommentData>) => {
+  switch (action.type) {
+    case DataTypes.GET_SONGCOMMENT:
+      return action.data
+      default:
+        return state
   }
 }
 
@@ -61,5 +106,9 @@ export {
   getRecommendList,
   getHotSearchList,
   getSearchList,
-  getPlayListDetail
+  getPlayListDetail,
+  getSongDetail,
+  getSongLyrics,
+  getSimiSong,
+  getSongComment
 }

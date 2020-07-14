@@ -18,3 +18,10 @@ page {
   word-break: normal;
   line-height: 1.5;
 }
+
+.btn-plain {
+  color: #353535;
+  border: 1px solid #353535;
+  background-color: transparent;
+}
+  

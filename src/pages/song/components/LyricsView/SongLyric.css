@@ -1,0 +1,24 @@
+.song-lyric {
+  padding: 0 33.336px;
+  height: 120PX;
+}
+
+.song-lyric .lyric-wrap {
+  transition: transform .3s ease-out;
+  transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+}
+
+.song-lyric .lyric-wrap .lyric-item {
+  overflow: hidden;
+  margin-bottom: 16PX;
+  color: rgba(250,250,250,.4);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: normal;
+  font-size: 16PX;
+  line-height: 1.5;
+}
+
+.song-lyric .lyric-wrap .focus {
+  color: #fff;
+}

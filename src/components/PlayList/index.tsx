@@ -35,7 +35,9 @@ export default (props: {
   const layout = props.list?.map((v,i) => {
     const author = v.ar.map(v=>v.name).join('/')
     const name = v.al.name
-    return <View key={v.id} className={styles['list-item']} style={{paddingLeft: "104px", borderBottom: 0}} onTap={handleItemTap.bind(null, v.id, 'list', props.id)}>
+    return <View key={v.id} className={styles['list-item']} 
+      style={{paddingLeft: "104px", borderBottom: 0}} 
+      onTap={handleItemTap.bind(null, v.id, 'list', props.id)}>
       <View className={styles['order']}>
         {i+1}
       </View>

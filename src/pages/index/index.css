@@ -1,34 +1,77 @@
-.app {
-  text-align: center;
+.index .wrap {
+  margin: 0 33.336px;
 }
 
-.logo {
-  animation: logo-spin infinite 20s linear;
-  height: 240px;
-  width: 240px;
-  pointer-events: none;
+.index .empty {
+  height: 181.2645px;
 }
 
-.text {
-  margin-top: 64px;
+.index .search-box {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 20.835px 0 31.2525px;
+  height: 72.9225px;
+  border-radius: 42.3645px;
+  background: rgba(0,0,0,.03);
+  color: #999;
+  font-size: 29.169px;
 }
 
-.header {
-  padding-top: 30%;
-  background-color: #282c34;
-  font-size: 40px;
-  color: white;
+.index .search-box .search-icon {
+  margin-left: 27.0855px;
+  width: 33.336px;
+  height: 33.336px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.index .search-box .search-text {
+  margin-left: 20.835px;
 }
 
-input::-webkit-input-placeholder {
-  color: #a3a3a3;
+.index .toplist {
+  margin-bottom: 20.835px;
+  color: #fff;
+  font-size: 21.5295px;
+}
+
+.index .toplist .left {
+  position: relative;
+}
+
+.index .toplist .left .cover {
+  width: 213.906px;
+  height: 213.906px;
+  border-radius: 8.334px;
+}
+
+.index .toplist .left .text {
+  position: absolute;
+  bottom: 13.1955px;
+  left: 12.501px;
+}
+
+.index .toplist,.index .toplist .right {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.index .toplist .right {
+  flex-direction: column;
+  margin: 25.002px 0 24.3075px 20.835px;
+  width: 415.311px;
+  color: #666;
+  font-size: 27.0855px;
+}
+
+.index .toplist .right .song {
+  overflow: hidden;
+  margin-bottom: 31.947px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.index .toplist .right .song:last-child {
+  margin-bottom: 0;
 }

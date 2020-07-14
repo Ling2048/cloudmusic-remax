@@ -1,0 +1,75 @@
+@-webkit-keyframes circling {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes circling {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.song-main {
+  width: 100%;
+}
+
+.song-main .vinyl-head {
+  position: relative;
+  height: 209.739px;
+}
+
+.song-main .vinyl-head .logo {
+  position: absolute;
+  top: 15.279px;
+  left: 20.835px;
+  width: 193.7655px;
+  height: 37.503px;
+}
+
+.song-main .vinyl-head .vinyl-needle {
+  position: absolute;
+  left: 46%;
+  z-index: 1;
+  width: 213.2115px;
+  height: 345.1665px;
+}
+
+.song-main .vinyl-turntable {
+  position: relative;
+  height: 575.046px;
+}
+
+.song-main .vinyl-turntable .vinyl-mask {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -184.0425px 0 0 -184.0425px;
+  width: 368.085px;
+  height: 368.085px;
+}
+
+.song-main .vinyl-turntable .vinyl-bottom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -287.523px 0 0 -287.523px;
+  width: 575.046px;
+  height: 100%;
+}
+
+.song-main .vinyl-turntable .circling,.song-main .vinyl-turntable .pause {
+  animation: circling 20s infinite linear;
+}
+
+.song-main .vinyl-turntable .pause {
+  animation-play-state: paused;
+}

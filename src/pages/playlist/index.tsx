@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { View, Image, Text, Button } from 'remax/one'
-import { useDispatch } from 'react-redux'
-import { useNativeEffect } from 'remax'
 import { playlistdetail } from '@/common/network'
 import PlayList from '@/components/PlayList'
 import Header from './components/Header'
+import NavBar from '@/components/NavBar'
+import { getCapsule, getCompatibleTop, getCompatibleWindowHeight } from '@/common'
+import PlayListSkeleton from '@/skeleton/playlist'
+import { usePageEvent } from 'remax/macro'
 
 import './index.css'
 
@@ -37,51 +39,84 @@ const mergeSongBytrack = (tracks: PlayListType, privileges: any, index: number, 
   return i;
 }
 
+
+
 export default (props: RouteProps<{id: number}>) => {
-  const [ playList, setPlayList ] = useState<PlayListDetail['playlist']>()
-  const [ list, setList ] = useState<PlayListType>()
+  console.time('playlistdetail')
+  const [ state, setState ] = useState<{
+    playlist: PlayListDetail['playlist'],
+    list: PlayListType,
+    loaded: boolean
+  }>()
   const id = props.location?.query.id!
 
-  useNativeEffect(()=>{
+  const memoStyle = React.useMemo<{
+    [key in string]: React.CSSProperties
+  }>(() => {
+    console.log('useMemo')
+
     playlistdetail({
       id: id,
       shareUserId: 0
     }).then((res)=>{
-      console.log(res.playlist)
-      setPlayList(res.playlist)
-      const list = mergeSongBytrack(res.playlist.tracks, res.privileges, 0, 15)
-      setList(list)
+      console.timeEnd('playlistdetail')
+      const list1 = mergeSongBytrack(res.playlist.tracks, res.privileges, 0, 15)
+      setState({playlist: res.playlist, list: list1, loaded: true})
     });
+
+    const capsuleHeight = getCapsule().height
+    const top = getCompatibleTop()
+    const height = getCompatibleWindowHeight()
+
+    return {
+      top: {
+        height: top + capsuleHeight + 15 + 'PX'
+      },
+      scroll: {
+        height: height - (top + capsuleHeight + 15) + 'PX',
+        overflow: 'scroll'
+      }
+    }
   }, [id])
 
+  console.log(state, !state)
+
   return <View>
-    <View className='playlist-bg'>
-      <Image className='playlist-bg-img' src={"https://music.163.com/api/img/blur/" + playList?.coverImgId_str + "?param=40y40"}/>
-      <View className='playlist-bg-mask'/>
-    </View>
-    <View>
-      <View className='header-wrap'>
-        <Header playlistInfo={playList!}/>
-      </View>
-      <View className='btn-list'>
-        <Button className='btn'>
-          <Image className='btn-icon' src={share}/>
-          <Text className='btn-msg'>分享给微信好友</Text>
-        </Button>
-      </View>
-      <View className='playlist-wrap'>
-        <View>
-          <View className='list-item'>
-            <Image className='play-icon' src={playIconAll}/>
-            <Text className='title'>播放全部</Text>
-            <Text className='info'>
-              (共{playList?.tracks.length}首)
-            </Text>
-          </View>
-          <PlayList list={list} id={id}/>
+    <NavBar name='歌单' hasLeftCapsule={true} theme='white'/>
+    {
+      !state ? <PlayListSkeleton/> :
+      <View>
+        <View className='playlist-bg'>
+          <Image className='playlist-bg-img' src={"https://music.163.com/api/img/blur/" + state?.playlist?.coverImgId_str + "?param=40y40"}/>
+          <View className='playlist-bg-mask'/>
         </View>
-        {/* <View className='no-song'>暂无播放</View> */}
+        <View style={memoStyle.top}/>
+        <View style={memoStyle.scroll}>
+          <View className='header-wrap'>
+            {
+              state?.playlist ? <Header playlistInfo={state.playlist!}/> : null
+            }
+          </View>
+          <View className='btn-list'>
+            <Button className='btn'>
+              <Image className='btn-icon' src={share}/>
+              <Text className='btn-msg'>分享给微信好友</Text>
+            </Button>
+          </View>
+          <View className='playlist-wrap'>
+            <View>
+              <View className='list-item'>
+                <Image className='play-icon' src={playIconAll}/>
+                <Text className='title'>播放全部</Text>
+                <Text className='info'>
+                  (共{state?.playlist?.tracks.length}首)
+                </Text>
+              </View>
+              <PlayList list={state?.list} id={id}/>
+            </View>
+          </View>
+        </View>
       </View>
-    </View>
+    }
   </View>
 }

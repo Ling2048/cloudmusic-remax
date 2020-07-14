@@ -1,0 +1,96 @@
+.m-navbar .navbar-icon {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  font-size: 35.4195px;
+}
+
+.m-navbar .navbar-icon .btn {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  float: left;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 0;
+  padding: 0;
+  border-radius: 44PX;
+}
+
+.m-navbar .navbar-icon .btn .line {
+  height: 57%;
+  background-color: rgba(255,255,255,.2);
+}
+
+.m-navbar .navbar-icon .btn .click-wrap {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+
+.m-navbar .navbar-icon .btn .icon {
+  width: 33.3%;
+  height: 49%;
+}
+
+.f-bd::after,.m-navbar .navbar-icon .title {
+  box-sizing: border-box;
+}
+
+.m-navbar .navbar-icon .title {
+  display: inline-block;
+  overflow: hidden;
+  padding: 0 9.723px;
+  vertical-align: top;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.m-navbar .navbar-icon .empty-capsule {
+  display: inline-block;
+}
+
+.f-bd {
+  position: relative;
+}
+
+.f-bd::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 200%;
+  height: 200%;
+  border-width: 0;
+  border-style: solid;
+  border-color: rgba(255,255,255,.2);
+  border-radius: 44PX;
+  content: '';
+  transform: scale(.5);
+  transform-origin: top left;
+  pointer-events: none;
+}
+
+.f-bd-black::after {
+  border-color: rgba(0,0,0,.1);
+}
+
+.f-bd-left:after {
+  border-width: 0 0 0 1PX;
+}
+
+.f-bd-full::after {
+  border-width: 1PX;
+}
+
+@media (min-width:385px) {
+  .navbar-icon .title {
+      font-size: 17PX;
+  }
+}

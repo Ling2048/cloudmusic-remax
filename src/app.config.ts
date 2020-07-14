@@ -14,11 +14,12 @@ import { AppConfig as WebAppConfig } from 'remax/web';
 export const wechat: WechatAppConfig = {
   pages,
   window: {
-    navigationBarTextStyle: "black",
+    navigationBarTextStyle: "white",
     navigationBarBackgroundColor: '#ffffff',
     navigationBarTitleText: '😀😃😄😁😆😅',
-    // navigationStyle: "custom"
+    navigationStyle: "custom"
   },
+  requiredBackgroundModes: ["audio"]
 };
 
 export const ali: AliAppConfig = {
