@@ -1,0 +1,80 @@
+.m-hot-search-list {
+  margin-left: 33.336px;
+  color: #333;
+}
+
+.m-hot-search-list .title {
+  font-weight: 500;
+  font-size: 29.169px;
+}
+
+.m-hot-search-list .list-item {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 22.9185px 33.336px 28.4745px 0;
+}
+
+.m-hot-search-list .list-item .left {
+  box-sizing: border-box;
+  padding-left: 9.723px;
+  width: 10%;
+  font-weight: 500;
+  font-size: 33.336px;
+}
+
+.m-hot-search-list .list-item .top {
+  color: #ff3a3a;
+}
+
+.m-hot-search-list .list-item .normal {
+  color: #999;
+}
+
+.m-hot-search-list .list-item .middle {
+  width: 70%;
+}
+
+.m-hot-search-list .list-item .middle .title {
+  overflow: hidden;
+  margin-bottom: 2.778px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 33.336px;
+}
+
+.m-hot-search-list .list-item .middle .title .text {
+  margin-right: 12.501px;
+}
+
+.m-hot-search-list .list-item .middle .title .up-icon {
+  width: 20.835px;
+  height: 25.6965px;
+}
+
+.m-hot-search-list .list-item .middle .title .hot-icon {
+  width: 53.4765px;
+  height: 25.002px;
+}
+
+.m-hot-search-list .list-item .middle .title .new-icon {
+  width: 59.0325px;
+  height: 25.002px;
+}
+
+.m-hot-search-list .list-item .middle .content {
+  overflow: hidden;
+  color: #999;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 25.002px;
+}
+
+.m-hot-search-list .list-item .right {
+  width: 20%;
+  color: #ccc;
+  text-align: end;
+  font-size: 25.002px;
+}

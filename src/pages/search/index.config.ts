@@ -1,5 +1,5 @@
 module.exports = {
   navigationBarTextStyle: "black",
   navigationBarBackgroundColor: '#ffffff',
-  navigationBarTitleText: '搜索',
+  navigationBarTitleText: '搜索111x',
 };

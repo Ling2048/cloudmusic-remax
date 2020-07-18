@@ -1,56 +1,58 @@
-.app {
-  display: flex;
-  flex-direction: column;
+.main-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
 }
 
-.search {
-  width: calc(100% - 48px);
+.main-view .search-wrap {
   position: fixed;
-  padding: 12px 30px;
-  background-color: white;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: #fff;
 }
 
-.page {
-  overflow-y: scroll;
+.main-view .page-wrap {
+  width: 100%;
+}
+
+.main-view .search-box {
+  position: relative;
+  box-sizing: border-box;
+  margin: 20.835px 33.336px;
+  height: 72.9225px;
+}
+
+.main-view .search-box .search-icon {
+  position: absolute;
+  top: 20.1405px;
+  left: 27.0855px;
+  width: 33.336px;
+  height: 33.336px;
+}
+
+.main-view .search-box .search-input {
+  padding-right: 81.2565px;
+  padding-left: 81.2565px;
   height: 100%;
-  margin-top: 80px;
-  border-top: 1px solid black;
+  border-radius: 42.3645px;
+  background: rgba(0,0,0,.03);
+  font-size: 29.169px;
 }
 
-.wrap {
-  padding: 30px;
+.main-view .search-box .delete-img {
+  position: absolute;
+  top: 0;
+  right: 20.835px;
+  padding: 24.3075px 20.835px;
+  width: 25.002px;
+  height: 25.002px;
 }
 
-.searchValue {
-  padding: 50px 25px;
-  color: #6f8eb6;
-  display: flex;
-}
-
-.searchValue View {
-  max-width: 60%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.searchList {
-  padding: 0 25px;
-  color: #747474;
-}
-
-.searchItem {
-  display: flex;
-  align-items: center;
-  padding: 30px 0;
-}
-
-Image {
-  width: 40px;
-  height: 40px;
-}
-
-.searchItem Image {
-  padding-right: 20px;
+.main-view .search-box .input-placeholder {
+  color: #999;
+  font-size: 29.169px;
 }

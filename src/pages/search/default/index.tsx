@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { View, Text } from 'remax/one'
 
-import styles from "../index.css"
+import styles from "./index.css"
 
 const icontype: {
   [key: number]: string
@@ -17,34 +17,26 @@ const Hot = () => {
 
   console.log(data);
 
-  const list = data.map((v, i) => {
-    return <View key={i} style={{display: 'flex', alignItems: 'center', padding: '10px 0'}}>
-      <Text style={{width: '10%', paddingLeft: '10px'}}>
-        {++i}
-      </Text>
-      <View style={{width: '70%'}}>
-        <View>
-          <Text style={{paddingRight: '10px'}}>{v.searchWord}</Text>
-          <Text>
-            {icontype[v.iconType]}
-          </Text>
+  const items = data.map((v, i) => {
+    return <View key={i} className={styles.listItem}>
+      <View className={`${styles.left} ${i <= 2 ? styles.top : styles.normal}`}>{i+1}</View>
+      <View className={styles.middle}>
+        <View className={styles.title}>
+          <Text className={styles.text}>{v.searchWord}</Text>
+          <View/>
         </View>
-        <Text style={{fontSize: '22px'}}>
+        <View className={styles.content}>
           {v.content}
-        </Text>
+        </View>
       </View>
-      <Text style={{fontSize: '20px', width: '20%', textAlign: 'right'}}>
-        {v.score}
-      </Text>
+      <View className={styles.right}>{v.score}</View>
     </View>
   });
 
-  return <View>
-    <View>
-      <Text>热搜榜</Text>
-    </View>
-    <View>
-      {list}
+  return <View className={styles.mHotSearchList}>
+    <View className={styles.title}>热搜榜</View>
+    <View className='list'>
+      {items}
     </View>
   </View>
 }

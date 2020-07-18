@@ -1,6 +1,6 @@
 .comment-item {
   position: relative;
-  margin-top: 31.2525rpx;
+  margin-top: 31.2525px;
 }
 
 .comment-item .avatar {
@@ -18,24 +18,24 @@
 
 .comment-item .avatar .avatar-img {
   display: block;
-  width: 62.505rpx;
-  height: 62.505rpx;
+  width: 62.505px;
+  height: 62.505px;
   border-radius: 50%;
 }
 
 .comment-item .avatar .ava-icon {
   position: absolute;
-  right: -4.8615rpx;
+  right: -4.8615px;
   bottom: 0;
-  width: 29.8635rpx;
-  height: 29.8635rpx;
+  width: 29.8635px;
+  height: 29.8635px;
   background-image: url(https://p4.music.126.net/l0FkWHfIqLav4I1oYHIyVQ==/19013854579518977.jpg);
-  background-size: 166.68rpx auto;
+  background-size: 166.68px auto;
   background-repeat: no-repeat;
 }
 
 .comment-item .avatar .yyr {
-  background-position: -43.7535rpx 0;
+  background-position: -43.7535px 0;
 }
 
 .comment-item .avatar .v {
@@ -43,57 +43,57 @@
 }
 
 .comment-item .avatar .daren {
-  background-position: -88.2015rpx 0;
+  background-position: -88.2015px 0;
 }
 
 .comment-item .comment-info {
-  margin-left: 83.34rpx;
-  padding-bottom: 31.2525rpx;
-  border-bottom: 0.6945rpx solid rgba(255,255,255,.1);
+  margin-left: 83.34px;
+  padding-bottom: 31.2525px;
+  border-bottom: 0.6945px solid rgba(255,255,255,.1);
 }
 
 .comment-item .comment-info .nick-name {
   display: block;
   color: rgba(255,255,255,.6);
-  font-size: 25.002rpx;
+  font-size: 25.002px;
   line-height: 1.5;
 }
 
 .comment-item .comment-info .nick-name .vip-associator,.comment-item .comment-info .nick-name .vip-package {
   display: inline-block;
-  margin-left: 9.0285rpx;
-  width: 18.7515rpx;
-  height: 18.7515rpx;
+  margin-left: 9.0285px;
+  width: 18.7515px;
+  height: 18.7515px;
 }
 
 .comment-item .comment-info .nick-name .vip-package {
-  width: 38.892rpx;
+  width: 38.892px;
 }
 
 .comment-item .comment-info .nick-name .vip-annualfee {
   display: inline-block;
-  margin-left: 6.2505rpx;
-  width: 54.8655rpx;
-  height: 18.7515rpx;
+  margin-left: 6.2505px;
+  width: 54.8655px;
+  height: 18.7515px;
 }
 
 .comment-item .comment-info .time {
   display: block;
   color: rgba(255,255,255,.3);
-  font-size: 18.7515rpx;
+  font-size: 18.7515px;
   line-height: 1.5;
 }
 
 .comment-item .comment-info .content {
-  padding: 12.501rpx 0 0;
+  padding: 12.501px 0 0;
   color: #fff;
-  font-size: 29.169rpx;
+  font-size: 29.169px;
   line-height: 1.5;
 }
 
 .comment-item .comment-info .content .cmt_emoji {
-  width: 29.169rpx;
-  height: 29.169rpx;
+  width: 29.169px;
+  height: 29.169px;
   vertical-align: middle;
 }
 
@@ -111,12 +111,12 @@
 
 .comment-item .comment-info .zan .zan-btn .zan-count {
   color: rgba(255,255,255,.4);
-  font-size: 25.002rpx;
+  font-size: 25.002px;
 }
 
 .comment-item .comment-info .zan .zan-btn .zan-img {
-  margin-left: 8.334rpx;
-  width: 33.336rpx;
-  height: 33.336rpx;
+  margin-left: 8.334px;
+  width: 33.336px;
+  height: 33.336px;
   vertical-align: bottom;
 }

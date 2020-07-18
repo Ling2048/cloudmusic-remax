@@ -1,0 +1,29 @@
+.search-result {
+  border-top: 0.6945px solid rgba(0,0,0,.1);
+}
+
+.search-result .no-result {
+  height: 125.01px;
+  color: #999;
+  text-align: center;
+  font-size: 32.6415px;
+  line-height: 125.01px;
+}
+
+.search-result .empty {
+  height: 59.727px;
+}
+
+@media only screen and (device-width:375px) and (device-height:812px) {
+  .search-result {
+      padding-bottom: constant(safe-area-inset-bottom);
+      padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@media only screen and (device-width:414px) and (device-height:896px) {
+  .search-result {
+      padding-bottom: constant(safe-area-inset-bottom);
+      padding-bottom: env(safe-area-inset-bottom);
+  }
+}

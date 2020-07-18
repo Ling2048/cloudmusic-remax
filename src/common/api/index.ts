@@ -7,7 +7,42 @@ const request = (url: string, init: { data: any, headers: any, method: string })
 }
 
 const getAudioManager = () : WechatMiniprogram.BackgroundAudioManager => {
-  return {} as any
+  const audio = new Audio()
+
+  const result = {
+    title: '',
+    singer: '',
+    epname: '',
+    coverImgUrl: '',
+    _src: '',
+    get src() { return this._src },
+    set src(value) {
+      this._src = value
+      this.play()
+    },
+    onPause(call: ()=>void) {
+      audio.onpause = call
+    },
+    onPlay(call: ()=>void) {
+      // audio.onplay = call
+    },
+    onStop(call: ()=>void) {
+    },
+    onEnded(call: ()=>void) {
+      audio.onended = call
+    },
+    play() {
+      console.log(this.src)
+      audio.src = this._src
+      audio.load()
+      audio.play()
+    },
+    pause: () => {
+      audio.pause()
+    }
+  }
+
+  return result as any
 }
 
 const StorageSync = {
@@ -18,11 +53,21 @@ const StorageSync = {
 }
 
 const getMenuButtonBoundingClientRect = () : WechatMiniprogram.Rect => {
-  return {} as any
+  return {
+    bottom: 80,
+    height: 32,
+    left: 278,
+    right: 365,
+    top: 48,
+    width: 87
+  }
 }
 
 const getSystemInfoSync = () : WechatMiniprogram.GetSystemInfoSyncResult => {
-  return {} as any
+  return {
+    screenWidth: window.screen.width,
+    screenHeight: window.screen.height
+  } as any
 }
 
 export { request, getAudioManager, StorageSync, getMenuButtonBoundingClientRect, getSystemInfoSync }

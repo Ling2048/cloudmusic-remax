@@ -3,17 +3,17 @@
   display: flex;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  margin-bottom: 70.1445rpx;
-  padding: 0 33.336rpx;
-  height: 70.839rpx;
+  margin-bottom: 70.1445px;
+  padding: 0 33.336px;
+  height: 70.839px;
 }
 
 .download-bar .down-btn {
   margin: 0;
-  width: 331.2765rpx;
-  border-radius: 35.4195rpx;
+  width: 331.2765px;
+  border-radius: 35.4195px;
   color: #fff;
-  font-size: 29.169rpx;
+  font-size: 29.169px;
   background-color: transparent;
 }
 
@@ -27,13 +27,13 @@
 }
 
 .download-bar .down-btn .down-img {
-  margin-right: 12.501rpx;
-  width: 37.503rpx;
-  height: 37.503rpx;
+  margin-right: 12.501px;
+  width: 37.503px;
+  height: 37.503px;
 }
 
 .download-bar .left {
-  border: 1.389rpx solid rgba(255,255,255,.6);
+  border: 1.389px solid rgba(255,255,255,.6);
 }
 
 .download-bar .right {

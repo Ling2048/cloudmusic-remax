@@ -76,6 +76,25 @@ const parseRelativeDate = (e: number, t: boolean) => {
   n.getFullYear(), w(r, t ? "Y-n-j" : "Y年n月j日"));
 }
 
+const B = (track: PlayListType[0]) => {
+  return {
+    name: track.name,
+    id: track.id,
+    privilege: track.privilege,
+    fee: track.fee,
+    ar: track.ar,
+    al: track.al
+  }
+}
+
+const mergeSongBytrack = (tracks: PlayListType, privileges: any, index: number, len: number) => {
+  for (var i = [], a = index; a < len; a++) {
+    tracks[a].privilege = privileges[a]
+    i.push(B(tracks[a]))
+  }
+  return i;
+}
+
 let MenuButtonBoundingClientRectInstance : WechatMiniprogram.Rect | null = null
 
 let SystemInfoInstance : WechatMiniprogram.GetSystemInfoSyncResult | null = null
@@ -93,7 +112,7 @@ const getSystemInfoInstance = () => {
     console.log('getSystemInfoInstance')
     SystemInfoInstance = getSystemInfoSync()
   }
-  return getSystemInfoSync()
+  return SystemInfoInstance
 }
 
 const getCapsule = getMenuButtonBoundingClientRectInstance
@@ -108,10 +127,6 @@ const getCompatibleWindowHeight = () => getSystemInfoInstance().screenHeight
 const getCompatibleWindowWidth = () => getSystemInfoInstance().screenWidth
 
 export {
-  getCount,
-  parseRelativeDate,
-  getCapsule,
-  getCompatibleTop,
-  getCompatibleWindowHeight,
-  getCompatibleWindowWidth
+  getCount, parseRelativeDate, getCapsule, getCompatibleTop, getCompatibleWindowHeight,
+  getCompatibleWindowWidth, mergeSongBytrack
 }

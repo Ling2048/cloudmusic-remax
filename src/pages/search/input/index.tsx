@@ -6,8 +6,9 @@ import { View, InputEvent } from 'remax/one'
 import { CMInput } from '@/components'
 
 import styles from '../index.css'
+import { getCapsule, getCompatibleTop } from '@/common'
 
-const Input = () => {
+export default React.memo(() => {
   const [ del, setDel ] = React.useState<boolean>(false)
   const inputValue = useSelector<Reducers, string>(state => state.SearchInputValue)
 
@@ -35,7 +36,19 @@ const Input = () => {
     dispatch(SearchShowType(0))
   }, [])
 
-  return <View className={styles.search}>
+  const memoStyle = React.useMemo<{
+    [key in string]: React.CSSProperties
+  }>(() => {
+    const capsule = getCapsule()
+    const top = getCompatibleTop()
+    return {
+      searchWrap: {
+        paddingTop: top + capsule.height + 15 + 'PX'
+      }
+    }
+  }, [])
+
+  return <View className={styles.searchWrap} style={memoStyle.searchWrap}>
     <CMInput 
       focus={true}
       del={del}
@@ -43,6 +56,4 @@ const Input = () => {
       value={inputValue}
       onDel={handleDel}/>
   </View>
-}
-
-export default Input
+})

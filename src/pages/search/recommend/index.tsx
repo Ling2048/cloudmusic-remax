@@ -12,7 +12,7 @@ const SearchValue = () => {
 
   return <View className={styles.searchValue}>
     <Text>搜索“</Text>
-    <View>
+    <View className={styles.view}>
       <Text>{inputValue}</Text>
     </View>
     <Text>“</Text>
@@ -40,7 +40,7 @@ const SearchList = () => {
 
   const list = searchList.map((v, i)=>{
     return <View key={i} className={styles.searchItem} onTap={handleSearchItemClick.bind(null, v.keyword)}>
-      <Image src={searchIcon}/>
+      <Image className={styles.image} src={searchIcon}/>
       <Text>{v.keyword}</Text>
     </View>
   });

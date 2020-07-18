@@ -1,12 +1,12 @@
 .song-comment {
   position: relative;
-  margin-top: 69.45rpx;
-  padding: 0 32.6415rpx;
+  margin-top: 69.45px;
+  padding: 0 32.6415px;
   color: #fff;
 }
 
 .song-comment .title {
   font-weight: 500;
-  font-size: 35.4195rpx;
+  font-size: 35.4195px;
   line-height: 1.5;
 }

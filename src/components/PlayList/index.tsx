@@ -35,36 +35,36 @@ export default (props: {
   const layout = props.list?.map((v,i) => {
     const author = v.ar.map(v=>v.name).join('/')
     const name = v.al.name
-    return <View key={v.id} className={styles['list-item']} 
-      style={{paddingLeft: "104px", borderBottom: 0}} 
+    return <View key={v.id} className={styles.listItem} 
+      // style={{paddingLeft: "104px", borderBottom: 0}} 
       onTap={handleItemTap.bind(null, v.id, 'list', props.id)}>
-      <View className={styles['order']}>
+      <View className={styles.order}>
         {i+1}
       </View>
-      <View className={styles['content']}>
-        <View className={styles['title']}>
+      <View className={styles.content}>
+        <View className={styles.title}>
           <Highlight title={v.name}/>
         </View>
-        <View className={styles['info']}>
+        <View className={styles.info}>
           {
-            isVip(v.fee) ?  <Image className={styles['tag-icon']} src={vip}/> : null
+            isVip(v.fee) ?  <Image className={styles.tagIcon} src={vip}/> : null
           }
           {
-            isExclusive(v.privilege?.flag!) ? <Image className={styles['tag-icon']} src={cr}/> : null
+            isExclusive(v.privilege?.flag!) ? <Image className={styles.tagIcon} src={cr}/> : null
           }
           {
-            isHighQuility(v.privilege?.maxbr!) ? <Image className={styles['tag-icon']} src={sq}/> : null
+            isHighQuility(v.privilege?.maxbr!) ? <Image className={styles.tagIcon} src={sq}/> : null
           }
           <Highlight title={author}/>
           {` - `}
           <Highlight title={name}/>
         </View>
       </View>
-      <Image className={styles['play-icon']} src={playIconWhite}></Image>
+      <Image className={styles.playIcon} src={playIconWhite}></Image>
     </View>
   })
 
-  return <View className={styles['m-play-list']} style={{paddingLeft: 0}}>
+  return <View className={styles.mPlayList} style={{paddingLeft: 0}}>
     {layout}
   </View>
 }

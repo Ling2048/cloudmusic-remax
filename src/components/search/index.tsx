@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { View, Image, Input, InputEvent } from "remax/one"
-import search from '../../images/search.svg'
-import close from '../../images/close.svg'
 import styles from './index.css'
+import { searchIcon, deleteInputIcon } from '@/common/icons'
 
 type Props = {
   disabled?: boolean,
@@ -16,21 +15,21 @@ type Props = {
 export default (props: Props) => {
   const { disabled, focus, del, value, onInput, onDel } = props
 
-  return <View className={styles.container}>
-    <Image className={`${styles.icon} ${styles.marginRight}`} src={search}/>
+  return <View className={styles.searchBox}>
+    <Image className={styles.searchIcon} src={searchIcon}/>
     <Input
-      className={styles.input}
+      className={styles.searchInput}
       placeholder='搜索歌曲'
       placeholderStyle={{ color: '#a3a3a3' }}
       disabled={disabled || false}
       focus={focus || false}
       onInput={onInput}
-      value={value}
+      // value={value}
     />
     <Image 
-      className={`${styles.icon} ${styles.marginLeft}`} 
+      className={styles.deleteImg} 
       style={{visibility: del ? 'visible' : 'hidden' }} 
-      src={close}
+      src={deleteInputIcon}
       onTap={onDel}/>
   </View>
 }
