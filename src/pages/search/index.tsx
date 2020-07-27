@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { View } from 'remax/one'
-import { useNativeEffect } from 'remax'
 import { useDispatch } from 'react-redux'
 
 import Recommend from './recommend'
@@ -8,7 +7,7 @@ import Default from './default'
 import Input from './input'
 import SearchResult from './result'
 
-import { getHotSearchList } from '../../store/redux/actions'
+import { getHotSearchList, SearchInputValue, SearchShowType } from '../../store/redux/actions'
 import { hotsearchlist } from '../../common/network'
 
 import NavBar from '@/components/NavBar'
@@ -19,11 +18,15 @@ import styles from './index.css';
 export default () => {
   const dispatch = useDispatch()
 
-  useNativeEffect(()=>{
+  React.useEffect(()=>{
     hotsearchlist().then((res)=>{
-      console.log(res);
       dispatch(getHotSearchList(res.data))
     });
+
+    return () => {
+      dispatch(SearchInputValue(''))
+      dispatch(SearchShowType(0))
+    }
   }, [])
 
   const memoStyle = React.useMemo<{
@@ -34,7 +37,7 @@ export default () => {
     const height = getCompatibleWindowHeight()
     return {
       pageWrap: {
-        paddingTop: 71 + top + capsule.height + 'PX',
+        paddingTop: 75 + top + capsule.height + 'PX',
         height: height - (71 + top + capsule.height) + 'PX'
       }
     }

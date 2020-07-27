@@ -31,8 +31,9 @@ const getAudioManager = () : WechatMiniprogram.BackgroundAudioManager => {
     onEnded(call: ()=>void) {
       audio.onended = call
     },
+    onNext(call: ()=>void) {
+    },
     play() {
-      console.log(this.src)
       audio.src = this._src
       audio.load()
       audio.play()
@@ -46,10 +47,10 @@ const getAudioManager = () : WechatMiniprogram.BackgroundAudioManager => {
 }
 
 const StorageSync = {
-  setStorage: window.localStorage.setItem,
-  getStorage: window.localStorage.getItem,
-  clearStorage: window.localStorage.clear,
-  removeStorage: window.localStorage.removeItem
+  setStorage: (key: string, value: string) => window.localStorage.setItem(key, value),
+  getStorage: (key: string) => window.localStorage.getItem(key),
+  clearStorage: () => window.localStorage.clear(),
+  removeStorage: (key: string) => window.localStorage.removeItem(key)
 }
 
 const getMenuButtonBoundingClientRect = () : WechatMiniprogram.Rect => {

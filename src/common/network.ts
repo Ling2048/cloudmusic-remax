@@ -30,7 +30,7 @@ const search = (params: {
   s: string,
   limit: number,
   offset: number,
-  queryCorrect: boolean
+  queryCorrect: boolean,
 }) => {
   return Post<SearchList>('/weapi/search/get', {
     ...params,

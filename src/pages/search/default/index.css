@@ -78,3 +78,41 @@
   text-align: end;
   font-size: 25.002px;
 }
+
+.search-history {
+  margin-bottom: 65.283px;
+  padding: 20.835px 32.6415px 0;
+}
+
+.search-history .title {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 31.2525px;
+  color: #333;
+  font-weight: 500;
+  font-size: 29.169px;
+}
+
+.search-history .title .delete-icon {
+  width: 27.0855px;
+  height: 27.0855px;
+}
+
+.search-history .history-tag {
+  display: inline-block;
+  margin-right: 18.7515px;
+  margin-bottom: 20.835px;
+  padding: 0 25.002px;
+  height: 62.505px;
+  border-radius: 69.45px;
+  background: rgba(0,0,0,.03);
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 27.0855px;
+  line-height: 62.505px;
+}

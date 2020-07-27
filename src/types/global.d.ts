@@ -187,7 +187,11 @@ type PlayListDetail = Base<null, null> & {
   },
   privileges: {
     flag: number,
-    maxbr: number
+    maxbr: number,
+    st: number,
+    fee: number,
+    payed: number,
+    pl: number
   }[]
 }
 
@@ -209,6 +213,8 @@ type SongLyrics = Base<null, null> & {
   qfy: boolean,
   sfy: boolean,
   sgc: boolean,
+  nolyric: boolean,
+  uncollected: boolean
 }
 
 type Privilege = {

@@ -2,9 +2,7 @@ import * as React from 'react'
 import { View, Image, Text } from 'remax/one'
 
 import styles from './item.css'
-
-const SQ = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMzZweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMzYgMjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU1LjEgKDc4MTM2KSAtIGh0dHBzOi8vc2tldGNoYXBwLmNvbSAtLT4KICAgIDx0aXRsZT5TUTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSLmkq3mlL7pobVf5YiG5Lqr54q25oCBIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTk4LjAwMDAwMCwgLTI1NzUuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC1Db3B5LTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAyNDY0LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ4LjAwMDAwMCwgMzAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE1MC4wMDAwMDAsIDkuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJTUSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDcyLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS0zMyIgc3Ryb2tlPSIjRkU2NzJFIiBzdHJva2Utd2lkdGg9IjIiIHg9IjEiIHk9IjEiIHdpZHRoPSIzNCIgaGVpZ2h0PSIyMiIgcng9IjIiPjwvcmVjdD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zMCwxNiBMMzAuOTkwNjMxMSwxNiBDMzEuNTQ4MDkwMiwxNiAzMiwxNi40NDI2NjAzIDMyLDE2Ljk5ODk1NjYgTDMyLDE4LjAwMTA0MzQgQzMyLDE4LjU1Mjc1MTkgMzEuNTU2NjQ2OCwxOSAzMC45OTA2MzExLDE5IEwyOS4wMDkzNjg5LDE5IEMyOS4wMDg1NDQsMTkgMjkuMDA3NzE5NCwxOC45OTk5OTkgMjkuMDA2ODk1LDE4Ljk5OTk5NzEgQzI5LjAwNjA3MiwxOC45OTk5OTkgMjkuMDA1MjQ3NCwxOSAyOS4wMDQ0MjI1LDE5IEwxOS45OTU1Nzc1LDE5IEMxOS40NDU3MzUyLDE5IDE5LDE4LjU1MjUxMDYgMTksMTguMDAxNDk3NyBMMTksNi45OTg1MDIzMyBDMTksNi40NDcwNDQ3MiAxOS40NDQ4MzcsNiAxOS45OTU1Nzc1LDYgTDI5LjAwNDQyMjUsNiBDMjkuNTU0MjY0OCw2IDMwLDYuNDQ3NDg5NDMgMzAsNi45OTg1MDIzMyBMMzAsMTYgWiBNMjIsMTAuMDAyOTI5MyBMMjIsMTQuOTk3MDcwNyBDMjIsMTUuNTYyMTE4NiAyMi40NDc2MjkxLDE2IDIyLjk5OTgwNzUsMTYgTDI2LjAwMDE5MjUsMTYgQzI2LjU1NjI4MzQsMTYgMjcsMTUuNTUwOTczMiAyNywxNC45OTcwNzA3IEwyNywxMC4wMDI5MjkzIEMyNyw5LjQzNzg4MTM1IDI2LjU1MjM3MDksOSAyNi4wMDAxOTI1LDkgTDIyLjk5OTgwNzUsOSBDMjIuNDQzNzE2Niw5IDIyLDkuNDQ5MDI2NzYgMjIsMTAuMDAyOTI5MyBaIiBpZD0iUmVjdGFuZ2xlLTQwIiBmaWxsPSIjRkU2NzJFIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTQsMTkgTDYsMTkgTDYsMTYgTDE0LDE2IEwxNCwxNCBMOSwxNCBMNywxNCBDNi40NDc3MTUyNSwxNCA2LDEzLjU1MjI4NDcgNiwxMyBMNiw2IEw5LDYgTDE3LDYgTDE3LDkgTDksOSBMOSwxMSBMMTYsMTEgQzE2LjU1MjI4NDcsMTEgMTcsMTEuNDQ3NzE1MyAxNywxMiBMMTcsMTQgTDE3LDE4IEMxNywxOC41NTIyODQ3IDE2LjU1MjI4NDcsMTkgMTYsMTkgTDE0LDE5IFoiIGlkPSJDb21iaW5lZC1TaGFwZSIgZmlsbD0iI0ZFNjcyRSI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=";
-
+import { sq } from '@/common/icons'
 
 export default (props: {
   data: {
@@ -15,11 +13,12 @@ export default (props: {
     isSQ: boolean;
     pic: string;
     privilege: Privilege;
-  }
+  },
+  onTap: (id: any) => void
 }) => {
-  const { data: { songName, singerName, albumName, isSQ, pic, privilege } } = props
+  const { data: { id, songName, singerName, albumName, isSQ, pic, privilege }, onTap } = props
 
-  return <View className={styles.simisongItem}>
+  return <View className={styles.simisongItem} onTap={onTap.bind(null, id)}>
     <Image className={styles.simisongImg} src={pic}/>
     <View className={styles.content}>
       <Text className={styles.contentTitle}>
@@ -27,7 +26,7 @@ export default (props: {
       </Text>
       <View className={styles.contentMain}>
         {
-          isSQ ? <Image className={styles.sqTag} src={SQ}/> : null
+          isSQ ? <Image className={styles.sqTag} src={sq}/> : null
         }
         {singerName + ' - ' + albumName}
       </View>

@@ -8,6 +8,9 @@ enum DataTypes {
   GET_SONGLYRICS = 'GET_SONGLYRICS',
   GET_SIMISONG = 'GET_SIMISONG',
   GET_SONGCOMMENT = 'GET_SONGCOMMENT',
+  GET_SONGLIST = 'GET_SONGLIST',
+  SET_CLEARSONGLIST = 'SET_CLEARSONGLIST',
+  SET_SONGLISTISLOADED = 'SET_SONGLISTISLOADED'
 }
 
 const Base = <T>(type: string) => (data: T) => ({
@@ -23,11 +26,21 @@ const getHotSearchList = Base<HotSearchList['data']>(DataTypes.GET_HOTSEARCHLIST
 
 const getSearchList = Base<SearchList['result']>(DataTypes.GET_SEARCHLIST)
 
+const getSongList = Base<{
+  songs: SearchList['result']['songs'],
+  highlights: SearchList['result']['highlights'],
+  isLoaded: boolean
+}>(DataTypes.GET_SONGLIST)
+
+const setClearSongList = Base(DataTypes.SET_CLEARSONGLIST)
+
+const setSongListIsLoaded = Base<{isLoaded: boolean}>(DataTypes.SET_SONGLISTISLOADED)
+
 const getPlayListDetail = Base<PlayListDetail>(DataTypes.GET_PLAYLISTDETAIL)
 
 const getSongDetail = Base<SongDetail['data']>(DataTypes.GET_SONGDETAIL)
 
-const getSongLyrics = Base<SongLyrics['lrc']>(DataTypes.GET_SONGLYRICS)
+const getSongLyrics = Base<SongLyrics>(DataTypes.GET_SONGLYRICS)
 
 const getSimiSong = Base<SimiSong['songs']>(DataTypes.GET_SIMISONG)
 
@@ -43,5 +56,8 @@ export {
   getSongDetail,
   getSongLyrics,
   getSimiSong,
-  getSongComment
+  getSongComment,
+  getSongList,
+  setClearSongList,
+  setSongListIsLoaded
 }

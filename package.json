@@ -8,7 +8,7 @@
   "author": "Ling2048 <L2048@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env REMAX_DEBUG=1 remax build -w -t",
+    "dev": "remax build -w -t",
     "build": "cross-env NODE_ENV=production remax build -t"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "remax": "^2.7.0"
   },
   "devDependencies": {
+    "@types/debounce": "^1.2.0",
     "@types/react": "^16.9.16",
     "@types/react-redux": "^7.1.9",
     "cross-env": "^7.0.2",

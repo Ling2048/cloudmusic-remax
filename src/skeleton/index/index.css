@@ -1,0 +1,43 @@
+.m-skeleton-index {
+  margin: 0 33.336rpx;
+}
+
+.m-skeleton-index .empty {
+  height: 181.2645rpx;
+}
+
+.m-skeleton-index .search-box {
+  margin: 20.835rpx 0 31.2525rpx;
+  height: 72.9225rpx;
+  background: rgba(0,0,0,.03);
+}
+
+.m-skeleton-index .toplist {
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20.835rpx;
+}
+
+.m-skeleton-index .toplist .left {
+  width: 213.906rpx;
+  height: 213.906rpx;
+  background: rgba(0,0,0,.03);
+}
+
+.m-skeleton-index .toplist .right {
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  margin: 25.002rpx 0 24.3075rpx 20.835rpx;
+  width: 415.311rpx;
+}
+
+.m-skeleton-index .toplist .right .song {
+  margin-bottom: 31.947rpx;
+  height: 27.0855rpx;
+  background: rgba(0,0,0,.03);
+}
+
+.m-skeleton-index .toplist .right .song:last-child {
+  margin-bottom: 0;
+}

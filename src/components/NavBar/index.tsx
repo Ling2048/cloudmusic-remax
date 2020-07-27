@@ -12,12 +12,10 @@ export default React.memo((props: {
 }) => {
   const { name, hasLeftCapsule, theme } = props
   const memoStyle = React.useMemo<{ [key in string] :  React.CSSProperties }>(() => {
-    console.time('navbar')
     const capsule = getCapsule()
     const capsuleHeight = capsule.height, capsuleRight = capsule.right, capsuleWidth = capsule.width
     const top = getCompatibleTop()
     const width = getCompatibleWindowWidth()
-    console.timeEnd('navbar')
   
     return {
       capsule: {
@@ -31,15 +29,16 @@ export default React.memo((props: {
       },
       title: {
         width: 2 * capsuleRight - 2 * capsuleWidth - width + 'PX',
-        color: '#000000'
+        color: theme === 'white' ? '#ffffff' : '#000000',
       },
       capsuleClsExtend: {
         marginLeft: width - capsuleRight + 'PX',
         width: capsuleWidth+ 'PX',
-        height: capsuleHeight + 'PX'
+        height: capsuleHeight + 'PX',
+        backgroundColor: theme === 'white' ? 'rgba(0,0,0,0.2)' : 'unset'
       }
     }
-  }, [])
+  }, [theme])
 
   const handleNavBack = React.useCallback(() => navigateBack(), [])
   const handleRelaunch = React.useCallback(() => reLaunch({url: '/pages/index/index'}), [])
@@ -50,17 +49,16 @@ export default React.memo((props: {
   let iconLeftArrow = leftArrow
   let iconHome = home
 
-  if (theme === 'white') {
-    memoStyle.title.color = '#ffffff'
-    memoStyle.capsuleClsExtend.backgroundColor = 'rgba(0,0,0,0.2)'
-  }
-  else {
-    capsuleCls += styles.fBdBlack
-    lineCls += styles.fBdBlack
+  // if (theme === 'white') {
+  //   memoStyle.title.color = '#ffffff'
+  //   memoStyle.capsuleClsExtend.backgroundColor = 'rgba(0,0,0,0.2)'
+  // }
+  if (theme !== 'white') {
+    capsuleCls += ' ' + styles.fBdBlack
+    lineCls += ' ' + styles.fBdBlack
     iconLeftArrow = leftArrow_black
     iconHome = home_black
   }
-
 
   return <View className={styles.mNavbar}>
     <View className={styles.navbarIcon} style={memoStyle.capsule}>

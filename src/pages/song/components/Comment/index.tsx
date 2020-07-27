@@ -5,7 +5,7 @@ import Item from './Item'
 import styles from './index.css'
 import { useSelector } from 'react-redux'
 
-export default () => {
+export default React.memo(() => {
   const data = useSelector<Reducers, Actions['data']['getSongComment']['data']>(state => state.getSongComment)
   const items = data.slice(0, 10).map(v => {
     return <Item key={v.commentId} data={v}/>
@@ -17,4 +17,4 @@ export default () => {
       {items}
     </View>
   </View>
-}
+})

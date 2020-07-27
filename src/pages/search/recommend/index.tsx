@@ -1,47 +1,32 @@
 import * as React from 'react'
-import { View, Text, Image } from 'remax/one'
+import { View, Image } from 'remax/one'
 import searchIcon from '../../../images/search.svg'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import styles from './index.css';
-import { search } from '@/common/network';
-import { getSearchList, SearchShowType, SearchInputValue } from '@/store/redux/actions';
+import { useHandleSearchItem } from '@/common/hooks';
 
 const SearchValue = () => {
-  const inputValue = useSelector<Reducers, string>(reducers => reducers.SearchInputValue)
+  const inputValue = useSelector<Reducers, Actions['common']['SearchInputValue']['data']>(state => state.SearchInputValue)
+  // const inputValue = useSelector<Reducers, string>(reducers => reducers.SearchInputValue)
 
-  return <View className={styles.searchValue}>
-    <Text>搜索“</Text>
-    <View className={styles.view}>
-      <Text>{inputValue}</Text>
-    </View>
-    <Text>“</Text>
+  const handleSearchItemClick = useHandleSearchItem()
+
+  return <View className={`${styles.searchItem} ${styles.title}`} onTap={handleSearchItemClick.bind(null, inputValue)}>
+    搜索”{inputValue}“
   </View>
 }
 
 const SearchList = () => {
-  const dispatch = useDispatch()
   const searchList = useSelector<Reducers, Actions['data']['getRecommendList']['data']>(reducers => reducers.getRecommendList)
 
-  const handleSearchItemClick = React.useCallback((keyword: string) => {
-    console.log(keyword)
-    search({
-      s: keyword,
-      limit: 20,
-      offset: 0,
-      queryCorrect: true
-    }).then(res=>{
-      console.log(res.result)
-      dispatch(SearchInputValue(keyword))
-      dispatch(getSearchList(res.result))
-      dispatch(SearchShowType(2))
-    })
-  }, [])
+  const handleSearchItemClick = useHandleSearchItem()
 
   const list = searchList.map((v, i)=>{
     return <View key={i} className={styles.searchItem} onTap={handleSearchItemClick.bind(null, v.keyword)}>
-      <Image className={styles.image} src={searchIcon}/>
-      <Text>{v.keyword}</Text>
+      <Image className={styles.searchIcon} src={searchIcon}/>
+      {v.keyword}
+      {/* <Text>{v.keyword}</Text> */}
     </View>
   });
 
@@ -53,7 +38,7 @@ const SearchList = () => {
 const Suggest = () => {
   const showType = useSelector<Reducers, number>(reducers => reducers.SearchShowType)
 
-  return <View className={styles.wrap} style={{display: showType === 1 ? 'block' : 'none'}}>
+  return <View className={styles.searchRecommend} style={{display: showType === 1 ? 'block' : 'none'}}>
     <SearchValue/>
     <SearchList/>
   </View>

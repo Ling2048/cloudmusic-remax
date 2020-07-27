@@ -4,6 +4,7 @@ type TopList = Actions['data']['getTopList']['data']
 type RecommendList = Actions['data']['getRecommendList']['data']
 type HotSearchList = Actions['data']['getHotSearchList']['data']
 type SearchList = Actions['data']['getSearchList']['data']
+type SongList = Actions['data']['getSongList']['data']
 type SongDetailData = Actions['data']['getSongDetail']['data']
 type SongLyricsData = Actions['data']['getSongLyrics']['data']
 type SimiSongData = Actions['data']['getSimiSong']['data']
@@ -51,6 +52,35 @@ const getSearchList = (state: SearchList | null = null, action: ActionType<Searc
   switch (action.type) {
     case DataTypes.GET_SEARCHLIST:
       return action.data
+    default:
+      return state
+  }
+}
+
+const getSongList = (state: SongList = {
+  songs: [],
+  highlights: [],
+  isLoaded: false
+}, action: ActionType<SongList>) : SongList => {
+  switch (action.type) {
+    case DataTypes.GET_SONGLIST:
+      state.songs.push(...action.data.songs)
+      return {
+        ...state,
+        highlights: action.data.highlights,
+        isLoaded: action.data.isLoaded
+      }
+    case DataTypes.SET_CLEARSONGLIST:
+      return {
+        songs: [],
+        highlights: [],
+        isLoaded: false
+      }
+    case DataTypes.SET_SONGLISTISLOADED: 
+      return {
+        ...state,
+        isLoaded: action.data.isLoaded
+      }
     default:
       return state
   }
@@ -110,5 +140,6 @@ export {
   getSongDetail,
   getSongLyrics,
   getSimiSong,
-  getSongComment
+  getSongComment,
+  getSongList
 }

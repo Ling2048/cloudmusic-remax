@@ -23,3 +23,7 @@ page {
   border: 1px solid #353535;
   background-color: transparent;
 }
+
+button::after {
+  border: none !important;
+}
