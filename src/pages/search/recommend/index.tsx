@@ -8,8 +8,6 @@ import { useHandleSearchItem } from '@/common/hooks';
 
 const SearchValue = () => {
   const inputValue = useSelector<Reducers, Actions['common']['SearchInputValue']['data']>(state => state.SearchInputValue)
-  // const inputValue = useSelector<Reducers, string>(reducers => reducers.SearchInputValue)
-
   const handleSearchItemClick = useHandleSearchItem()
 
   return <View className={`${styles.searchItem} ${styles.title}`} onTap={handleSearchItemClick.bind(null, inputValue)}>
@@ -19,14 +17,12 @@ const SearchValue = () => {
 
 const SearchList = () => {
   const searchList = useSelector<Reducers, Actions['data']['getRecommendList']['data']>(reducers => reducers.getRecommendList)
-
   const handleSearchItemClick = useHandleSearchItem()
 
   const list = searchList.map((v, i)=>{
     return <View key={i} className={styles.searchItem} onTap={handleSearchItemClick.bind(null, v.keyword)}>
       <Image className={styles.searchIcon} src={searchIcon}/>
       {v.keyword}
-      {/* <Text>{v.keyword}</Text> */}
     </View>
   });
 

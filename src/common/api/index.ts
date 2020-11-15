@@ -20,6 +20,7 @@ const getAudioManager = () : WechatMiniprogram.BackgroundAudioManager => {
       this._src = value
       this.play()
     },
+    get currentTime() { return audio.currentTime },
     onPause(call: ()=>void) {
       audio.onpause = call
     },
@@ -33,6 +34,9 @@ const getAudioManager = () : WechatMiniprogram.BackgroundAudioManager => {
     },
     onNext(call: ()=>void) {
     },
+    onTimeUpdate(call: ()=>void) {
+      audio.ontimeupdate = call;
+    },
     play() {
       audio.src = this._src
       audio.load()
@@ -40,7 +44,7 @@ const getAudioManager = () : WechatMiniprogram.BackgroundAudioManager => {
     },
     pause: () => {
       audio.pause()
-    }
+    },
   }
 
   return result as any

@@ -29,10 +29,18 @@
   position: absolute;
   top: 0;
   right: 20.835px;
-  padding: 24.3075px 20.835px;
+  /* padding: 24.3075px 20.835px; */
   /* margin: 24.3075px 20.835px; */
   width: 25.002px;
   height: 25.002px;
+}
+
+.outer-padding {
+  padding: 24.3075px 20.835px;
+}
+
+.outer-margin {
+  margin: 24.3075px 20.835px;
 }
 
 .search-box .input-placeholder {

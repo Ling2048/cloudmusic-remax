@@ -14,6 +14,11 @@
   border-bottom: 0; */
 }
 
+.noOrder {
+  padding-left: 104px !important;
+  border-bottom: 0 !important;
+}
+
 .m-play-list .list-item .order {
   position: absolute;
   top: 41.67px;

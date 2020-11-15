@@ -14,8 +14,6 @@ export default () => {
   const dispatch = useDispatch()
 
   const handleInput = React.useCallback((value) => {
-    // dispatch(SearchKeyword(value))
-    // const value = e.target.value as string
     dispatch(SearchInputValue(value))
     dispatch(SearchShowType(1))
     suggest(value).then((res)=>{
@@ -26,13 +24,11 @@ export default () => {
     if (value.length === 0) {
       dispatch(SearchShowType(0))
     }
-    // return value
   }, [keyword])
 
   const handleConfirm = useHandleSearchItem()
 
   const handleDel = React.useCallback(()=>{
-    dispatch(SearchKeyword(' '))
     dispatch(SearchKeyword(''))
     dispatch(SearchInputValue(''))
     dispatch(SearchShowType(0))

@@ -1,8 +1,7 @@
 import { getAudioManager, StorageSync } from '@/common/api'
-import { PlayTypes, setDurationIndex, initPlayerDurationListener, setPlayerInfo, setCurId } from '../actions'
+import { PlayTypes, setDurationIndex, setCurId } from '../actions'
 import { setPlayerStatus } from '../actions'
 import store from '../index'
-import { songurl } from '@/common/network'
 
 const audioManager = getAudioManager()
 type ActionData = Actions['player']['getPlayer']['data']

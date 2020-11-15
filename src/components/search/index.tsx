@@ -10,8 +10,8 @@ type Props = {
   focus: boolean,
   del?: boolean,
   value: string,
-  onInput?: ((e: InputEvent) => any) | undefined,
-  onConfirm?: ((value: string) => any) | undefined,
+  onInput?: ((e: InputEvent) => any),
+  onConfirm?: ((value: string) => any),
   onDel?: () => void
 }
 
@@ -22,13 +22,17 @@ export default React.memo((props: Props = {
   del: false,
   value: ''
 }) => {
-  const { focus, value, onInput, onDel, onConfirm } = props
+  const { focus, onInput, onDel, onConfirm } = props
 
   const [ del, setDel ] = React.useState<boolean>(false)
+  const [ value, setValue ] = React.useState<string>(props.value)
 
-  React.useMemo(()=>{
-    if (value && value.length > 0 && !del) setDel(true)
-  }, [value, del])
+  React.useEffect(()=>{
+    setValue(props.value)
+    if (props.value.length > 0) {
+      setDel(true)
+    }
+  }, [props.value])
 
   const _onDel = React.useCallback(()=>{
     setDel(false)
@@ -41,6 +45,13 @@ export default React.memo((props: Props = {
 
   const _onInput = React.useCallback((e: InputEvent)=>{
     var _value = e.target.value
+
+    onInput && onInput(_value)
+
+    if (process.env.REMAX_PLATFORM === 'web') {
+      setValue(_value)
+    }
+
     if (!del && _value.length > 0) {
       setDel(true)
     }
@@ -49,10 +60,15 @@ export default React.memo((props: Props = {
       setDel(false)
     }
 
-    onInput && onInput(_value)
-
     // return _value
   }, [onInput])
+
+  const deleteClass = React.useMemo(()=>{
+    if (process.env.REMAX_PLATFORM === 'wechat') {
+      return `${styles.deleteImg} ${styles.outerPadding}`
+    }
+    return `${styles.deleteImg} ${styles.outerMargin}`
+  }, []);
 
   return <View className={styles.searchBox}>
     <Image className={styles.searchIcon} src={searchIcon}/>
@@ -62,7 +78,7 @@ export default React.memo((props: Props = {
       placeholder='搜索歌曲'
       placeholderStyle={{ color: '#a3a3a3' }}
       // disabled={disabled || false}
-      focus={focus}
+      focus={(focus ? 1 : 0) as any}
       onInput={_onInput}
       value={value}
       onConfirm={_onConfirm}
@@ -70,7 +86,7 @@ export default React.memo((props: Props = {
       type='text'
     />
     <Image 
-      className={styles.deleteImg} 
+      className={deleteClass} 
       style={{ visibility: del ? 'visible' : 'hidden' }} 
       src={deleteInputIcon}
       onTap={_onDel}

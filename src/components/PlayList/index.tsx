@@ -52,10 +52,12 @@ export default (props: {
   const { id, list, noOrder, highlights } = props
 
   const layout = list?.map((v,i) => {
-    const author = v.ar.map(v=>v.name).join('/')
+    const author = v.ar.map(vv=>vv.name).join('/')
     const name = v.al.name
-    return <View key={v.id + v.name + i} className={styles.listItem} 
-      style={noOrder ? {} : {paddingLeft: "104px", borderBottom: 0}} 
+    let style = styles.listItem;
+    style += noOrder ? '' : ` ${styles.noOrder}`
+    return <View key={v.id + v.name + i} className={style} 
+      // style={noOrder ? {} : {paddingLeft: "104px", borderBottom: 0}} 
       onTap={handleItemTap.bind(null, v.id, 'list', id, list)}>
       {
         noOrder ? null : <View className={styles.order}>

@@ -14,7 +14,7 @@ import { getCompatibleTop, getCapsule, getCompatibleWindowHeight } from '@/commo
 import { play, pause } from '@/common/icons'
 
 const PlayCtrl = React.memo(() => {
-  const player = useSelector<Reducers, Actions['player']['getPlayer']['data']>(state => state.player!)
+  const player = useSelector<Reducers, Actions['player']['getPlayer']['data']>(state => state.player)
   const dispatch = useDispatch()
   const handlePlayAndPauseTap = React.useCallback((status: boolean)=>{
     dispatch(setPlayerStatus({playerStutes: status}))
@@ -86,17 +86,17 @@ export default React.memo((props: RouteProps<{id: string, source: string, source
     songdetail(id).then(res => {
       const data = res.data
       dispatch(getSongDetail(data))
-      songlyrics(id).then(res => {
-        dispatch(getSongLyrics(res))
+      songlyrics(id).then(res1 => {
+        dispatch(getSongLyrics(res1))
       })
-      simisong(id).then(res => {
-        dispatch(getSimiSong(res.songs))
+      simisong(id).then(res2 => {
+        dispatch(getSimiSong(res2.songs))
       })
-      songcomment({resourceId: id, resourceType: 4}).then(res => {
-        dispatch(getSongComment(res.hotComments))
+      songcomment({resourceId: id, resourceType: 4}).then(res3 => {
+        dispatch(getSongComment(res3.hotComments))
       })
-      songurl({ids: [id]}).then(res=>{
-        if (res.data[0].url !== null) {
+      songurl({ids: [id]}).then(res4=>{
+        if (res4.data[0].url !== null) {
           const firstData = data[0]
           dispatch(setPlayerInfo({
             songInfo: {
@@ -106,7 +106,7 @@ export default React.memo((props: RouteProps<{id: string, source: string, source
               singer: firstData.ar[0].name,
               coverImgUrl: firstData.al.picUrl
             },
-            src: res.data[0].url
+            src: res4.data[0].url
           }))
         }
       })
