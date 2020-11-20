@@ -227,7 +227,22 @@ function getLyricMap(e: any) {
   }), r;
 }
 
+const isAgent = (platform: string) => {
+  var userAgent = navigator ? navigator.userAgent : '';
+  // alert(userAgent);
+  return userAgent.includes(platform);
+}
+
+let _isSafari: boolean | null = null;
+
+const isSafari = () => {
+  if (!_isSafari) {
+    _isSafari = (isAgent('Safari') && isAgent('Android')) || !isAgent('XiaoMi')
+  }
+  return _isSafari;
+};
+
 export {
   getCount, parseRelativeDate, getCapsule, getCompatibleTop, getCompatibleWindowHeight,
-  getCompatibleWindowWidth, mergeSongBytrack, handleLyric, getLyricMap
+  getCompatibleWindowWidth, mergeSongBytrack, handleLyric, getLyricMap, isAgent, isSafari
 }

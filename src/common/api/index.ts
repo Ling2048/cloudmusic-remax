@@ -1,3 +1,5 @@
+import { isSafari } from ".."
+
 const request = (url: string, init: { data: any, headers: any, method: string }) => {
   return fetch(url, {
     body: init.data,
@@ -18,7 +20,9 @@ const getAudioManager = () : WechatMiniprogram.BackgroundAudioManager => {
     get src() { return this._src },
     set src(value) {
       this._src = value
-      this.play()
+      if (!isSafari()) {
+        this.play()
+      }
     },
     get currentTime() { return audio.currentTime },
     onPause(call: ()=>void) {
@@ -62,7 +66,7 @@ const getMenuButtonBoundingClientRect = () : WechatMiniprogram.Rect => {
     bottom: 80,
     height: 32,
     left: 278,
-    right: 365,
+    right: window.screen.width * 0.98,
     top: 48,
     width: 87
   }

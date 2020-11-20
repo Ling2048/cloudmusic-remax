@@ -8,6 +8,7 @@ import { searchIcon } from '@/common/icons'
 import Skeletion from '@/skeleton/index'
 
 import styles from './index.css'
+import { isAgent, isSafari } from '@/common'
 
 const TopList = React.memo(() => {
   const state = useSelector<Reducers, Actions['data']['getTopList']['data']>(state => state.getTopList);

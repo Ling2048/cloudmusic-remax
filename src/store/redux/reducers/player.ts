@@ -1,6 +1,7 @@
 import { getAudioManager, StorageSync } from '@/common/api'
 import { PlayTypes, setDurationIndex, setCurId } from '../actions'
 import { setPlayerStatus } from '../actions'
+import { isSafari } from '@/common'
 import store from '../index'
 
 const audioManager = getAudioManager()
@@ -96,11 +97,15 @@ const player = (state: ActionData = initData, actions: {type: string, data: Acti
     case PlayTypes.SET_PLAYERINFO:
       const info = actions.data.songInfo!
       setAdudioInfo(info, actions.data.src!)
+      let _playerStutes = false;
+      if (!isSafari()) {
+        _playerStutes = true;
+      }
       return {
         ...state,
         songInfo: info,
         src: actions.data.src!,
-        playerStutes: true
+        playerStutes: _playerStutes
       }
     case PlayTypes.INIT_PLAYERDURATIONLISTENER:
       const lyricsMap = actions.data.lyricsMap!
