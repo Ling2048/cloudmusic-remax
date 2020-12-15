@@ -29,9 +29,9 @@ export default () => {
         }
       </View>
     </View>
-    <Button className={styles.lyricsBtn}>
+    {/* <Button className={styles.lyricsBtn}>
       <Text>在网易云音乐查看更多歌词</Text>
       <Text className='lyrics-btn-arrow'/>
-    </Button>
+    </Button> */}
   </View>
 }

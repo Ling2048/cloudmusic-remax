@@ -17,14 +17,15 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
-    "remax": "^2.8.8"
+    "remax": "^2.11.0"
   },
   "devDependencies": {
     "@types/debounce": "^1.2.0",
-    "@types/react": "^16.9.56",
-    "@types/react-redux": "^7.1.11",
-    "cross-env": "^7.0.2",
-    "typescript": "^4.0.5"
+    "@types/react": "^17.0.0",
+    "@types/react-redux": "^7.1.12",
+    "cross-env": "^7.0.3",
+    "typescript": "^4.1.3"
   }
 }

@@ -16,7 +16,9 @@ export default React.memo((props: {
     const capsuleHeight = capsule.height, capsuleRight = capsule.right, capsuleWidth = capsule.width
     const top = getCompatibleTop()
     const width = getCompatibleWindowWidth()
-  
+    
+    const marginLeft = width - capsuleRight === 0 ? 12 : width - capsuleRight;
+
     return {
       capsule: {
         top: top + 'PX',
@@ -32,7 +34,7 @@ export default React.memo((props: {
         color: theme === 'white' ? '#ffffff' : '#000000',
       },
       capsuleClsExtend: {
-        marginLeft: width - capsuleRight + 'PX',
+        marginLeft: marginLeft + 'PX',
         width: capsuleWidth+ 'PX',
         height: capsuleHeight + 'PX',
         backgroundColor: theme === 'white' ? 'rgba(0,0,0,0.2)' : 'unset'

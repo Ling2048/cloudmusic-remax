@@ -103,6 +103,18 @@ const getMenuButtonBoundingClientRectInstance = () => {
   if (!MenuButtonBoundingClientRectInstance) {
     MenuButtonBoundingClientRectInstance = getMenuButtonBoundingClientRect()
   }
+
+  if (!MenuButtonBoundingClientRectInstance.top) {
+    const sysInfo = getSystemInfoInstance();
+    MenuButtonBoundingClientRectInstance = {
+      width:80,height:30,
+      left:sysInfo.windowWidth-12-80,
+      right:sysInfo.windowWidth-12,
+      top:sysInfo.statusBarHeight+10,
+      bottom:sysInfo.statusBarHeight+10+30
+    };
+  }
+
   return MenuButtonBoundingClientRectInstance
 }
 
