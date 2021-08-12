@@ -12,20 +12,20 @@
     "build": "cross-env NODE_ENV=production remax build -t"
   },
   "dependencies": {
-    "@types/crypto-js": "^4.0.1",
-    "crypto-js": "^4.0.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-redux": "^7.2.2",
+    "@types/crypto-js": "^4.0.2",
+    "crypto-js": "^4.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
-    "redux": "^4.0.5",
-    "remax": "^2.11.0"
+    "redux": "^4.1.1",
+    "remax": "^2.15.4"
   },
   "devDependencies": {
     "@types/debounce": "^1.2.0",
-    "@types/react": "^17.0.0",
-    "@types/react-redux": "^7.1.12",
+    "@types/react": "^17.0.17",
+    "@types/react-redux": "^7.1.18",
     "cross-env": "^7.0.3",
-    "typescript": "^4.1.3"
+    "typescript": "^4.3.5"
   }
 }

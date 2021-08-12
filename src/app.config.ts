@@ -9,7 +9,7 @@ const color = '#282c34';
 import { AppConfig as WechatAppConfig } from 'remax/wechat';
 import { AppConfig as AliAppConfig } from 'remax/ali';
 import { AppConfig as ToutiaoAppConfig } from 'remax/toutiao';
-import { AppConfig as WebAppConfig } from 'remax/web';
+import { AppConfig as WebAppConfig } from '@remax/web';
 
 export const wechat: WechatAppConfig = {
   pages,
@@ -40,5 +40,7 @@ export const toutiao: ToutiaoAppConfig = {
 
 export const web: WebAppConfig = {
   pages,
-  title: 'Remax One Web',
+  window: {
+    defaultTitle: 'Remax One Web'
+  }
 };
